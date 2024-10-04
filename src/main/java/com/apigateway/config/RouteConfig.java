@@ -31,14 +31,14 @@ public class RouteConfig {
                         .path("/api/v1/user/**", "/api/v1/role/**")
                         .uri(authURI))
                 .route("ms-property", r -> r
-                        .path("/api/v1/attribute-category/**", "/api/v1/attribute/**", "api/v1/category",
-                                "/api/v1/country/**", "api/v1/location/**", "api/v1/place-type", "/api/v1/property",
+                        .path("/api/v1/attribute-category/**", "/api/v1/attribute/**", "/api/v1/category/**",
+                                "/api/v1/country/**", "api/v1/location/**", "/api/v1/place-type/**", "/api/v1/property/**",
                                 "/api/v1/property-type/**", "api/v1/region/**")
-                        .filters(f -> f.filter(jwtFilter))
+                        //.filters(f -> f.filter(jwtFilter))
                         .uri(propertyURI))
                 .route("ms-reservation", r -> r
                         .path("/api/v1/booking/**")
-                        .filters(f -> f.filter(jwtFilter))
+                        //.filters(f -> f.filter(jwtFilter))
                         .uri(reservationURI))
                 .build();
     }
