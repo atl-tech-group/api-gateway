@@ -2,6 +2,7 @@ package com.apigateway.filter;
 
 import com.apigateway.util.JwtUtil;
 import io.jsonwebtoken.Claims;
+import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,18 +27,14 @@ import static org.springframework.http.HttpHeaders.AUTHORIZATION;
 
 @RefreshScope
 @Component
+@RequiredArgsConstructor
 public class JwtFilter implements GatewayFilter {
 
     private static final Logger log = LoggerFactory.getLogger(JwtFilter.class);
 
-    @Autowired
-    private RouterValidator routerValidator;
-
-    @Autowired
-    private JwtUtil jwtUtil;
-
-    @Autowired
-    private RoleFilter roleFilter;
+    private final RouterValidator routerValidator;
+    private final JwtUtil jwtUtil;
+    private final RoleFilter roleFilter;
 
     @Override
     public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {

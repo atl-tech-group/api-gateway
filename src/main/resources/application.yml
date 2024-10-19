@@ -11,9 +11,11 @@ server:
   port: 9091
 
 services:
-  auth: http://localhost:9092
+  auth: http://localhost:9096
   property: http://localhost:9093
   reservation: http://localhost:9094
+  payment: http://localhost:9097
+  notification: http://localhost:90
 jwt:
   secret:
     key: cn5N5rbQ1ruPW7ZEbjV6XMToIHyhG9KgHbvZedQahvjqqU3Kv9tv8X6gK289IXVXHUSVhKbjCgyny0SVOBOSg==
